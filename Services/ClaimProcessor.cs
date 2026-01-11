@@ -3,10 +3,22 @@ using AsyncDemo.Models;
 
 public class ClaimProcessor
 {
-    private readonly PolicyService _policy = new();
-    private readonly FraudService _fraud = new();
-    private readonly CoverageService _coverage = new();
-    private readonly PayoutService _payout = new();
+    private readonly PolicyService _policy;
+    private readonly FraudService _fraud;
+    private readonly CoverageService _coverage;
+    private readonly PayoutService _payout;
+
+    public ClaimProcessor(
+        PolicyService policy,
+        FraudService fraud,
+        CoverageService coverage,
+        PayoutService payout)
+    {
+        _policy = policy;
+        _fraud = fraud;
+        _coverage = coverage;
+        _payout = payout;
+    }
 
     public async Task<ClaimDecision> processClaim(Claim claim, CancellationToken token)
     {

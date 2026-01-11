@@ -2,7 +2,7 @@ using AsyncDemo.Utils;
 
 namespace AsyncDemo.Services;
 
- class PolicyService
+public class PolicyService
 {
     public async Task<bool> ValidatePolicy(string policyNuber, CancellationToken token)
     {
